@@ -49,8 +49,20 @@ export const useHangmanGame = () => {
   // Add keyboard event listener for physical keyboard input
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
+      // Ignore modifier and special keys
+      if (
+        event.ctrlKey ||
+        event.altKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        event.code === "Backspace"
+      )
+        return;
+
       const letter = event.key.toUpperCase();
-      if (letter >= "A" && letter <= "Z") {
+
+      // Check if it's exactly one character and is a letter
+      if (letter.length === 1 && letter >= "A" && letter <= "Z") {
         guessLetter(letter);
       }
     };
