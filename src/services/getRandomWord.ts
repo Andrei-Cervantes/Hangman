@@ -1,0 +1,17 @@
+import axios from "axios";
+import ENDPOINTS from "../config/endpoints";
+
+interface GetRandomWordOptions {
+  hasDictionaryDef: boolean;
+  maxLength: number;
+  minLength: number;
+}
+
+const getRandomWord = async (options: GetRandomWordOptions) => {
+  const response = await axios.get(ENDPOINTS.WORDNIK_RANDOM_WORD, {
+    params: options,
+  });
+  return response.data;
+};
+
+export default getRandomWord;
