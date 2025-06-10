@@ -2,19 +2,25 @@ import { useState } from "react";
 import getRandomWord from "./services/getRandomWord";
 
 function App() {
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState<string[]>([]);
   const getWord = async () => {
     const response = await getRandomWord({
       hasDictionaryDef: true,
       maxLength: 8,
       minLength: 5,
     });
-    setWord(response.word);
+    setWord(response);
   };
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline text-red-500">{word}</h1>
+      <div className="flex flex-row gap-2">
+        {word.map((letter, index) => (
+          <div className="text-center text-4xl font-bold" key={index}>
+            {letter}
+          </div>
+        ))}
+      </div>
       <button
         className="bg-blue-500 text-white p-2 rounded-md"
         onClick={getWord}
