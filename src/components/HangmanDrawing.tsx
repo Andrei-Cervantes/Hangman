@@ -6,7 +6,7 @@ const HangmanDrawing = ({ wrongGuessCount }: HangmanDrawingProps) => {
   const HEAD = (
     <div
       key="head"
-      className="w-12 h-12 rounded-full border-4 border-black absolute top-12 -right-6"
+      className="w-12 h-12 rounded-full border-4 border-black absolute top-12 -right-5"
     />
   );
 
@@ -31,7 +31,7 @@ const HangmanDrawing = ({ wrongGuessCount }: HangmanDrawingProps) => {
   const RIGHT_LEG = (
     <div
       key="rightleg"
-      className="w-16 h-2 bg-black absolute top-40 -right-12 rotate-[60deg] origin-bottom-left"
+      className="w-16 h-2 bg-black absolute top-40 -right-14 rotate-[60deg] origin-bottom-left"
     />
   );
 
@@ -51,7 +51,7 @@ const HangmanDrawing = ({ wrongGuessCount }: HangmanDrawingProps) => {
         {/* Base */}
         <div className="h-2 w-20 bg-black" />
         {/* Pole */}
-        <div className="h-64 w-2 bg-black" />
+        <div className="h-12 w-2 bg-black" />
         {/* Top beam */}
         <div className="h-2 w-32 bg-black absolute top-0 right-0" />
         {/* Noose */}
